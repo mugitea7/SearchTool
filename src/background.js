@@ -1,13 +1,13 @@
 chrome.contextMenus.create({
     title: 'Search Tool',
-    onclick: function (info, tab) {
+    onclick: (info, tab) => {
         window.alert('Hello,ChromeExtension!');
     }
 });
 
 /*
-$(function () {
-    $("#save").click(function () {
+$(() => {
+    $("#save").click(() => {
         localStorage["message"] = $("#message").val();
     });
 });
