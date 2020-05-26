@@ -9,6 +9,6 @@
     },
     "permissions": ["contextMenus"],
     "background": {
-        "scripts": ["background.js"]
+        "scripts": ["lib/jquery-3.5.1.min.js", "lib/jquery-ui.min.js", "src/background.js"]
     }
 }
