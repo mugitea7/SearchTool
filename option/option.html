@@ -6,20 +6,22 @@
   </head>
   <body>
     <div class="container">
-      <table>
+      <table id="table-tbody">
         <thead>
           <th>サイト</th>
           <th>クエリ</th>
         </thead>
-        <tbody>
+        <tbody id="query-table-tbody">
           <tr>
-            <td><input type="text" name="name"></td>
-            <td><input type="text" name="query"></td>
+            <td><input type="text" id="name" class="name"></td>
+            <td><input type="text" id="query" class="query"></td>
+            <td><button class="addRow">+</button></td>
             <td><button class="remove">-</button></td>
+            <!--<td><button class="up">↑</button></td>-->
+            <!--<td><button class="down">↓</button></td>-->
           </tr>
         </tbody>
       </table>
-      <button id="addRow">+</button>
       <button id="save">保存</button>
     </div>
     <script src="../lib/jquery-3.5.1.min.js"></script>

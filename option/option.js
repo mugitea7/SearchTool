@@ -1,20 +1,66 @@
+/*
+ * {
+ * index: 0,
+ * name: "example.com",
+ * query: "example.com?q="
+ * }
+ */
+
 $(function(){
-  $('tbody').sortable();
 
-  $('#addRow').click(function(){
-    var html = '<tr><td><input type="text" name="name"></td><td><input type="text" name="query"></td><td><button class="remove">-</button></td></tr>';
-    $('tbody').append(html);
+  // ローカルストレージのキー
+  const key = "option";
+
+  // ローカルストレージの設定を読み込み
+  $("tbody").sortable();
+  var loaddata = JSON.parse(localStorage.getItem(key));
+  // 1行目
+  var row = $($("table tbody tr").closest("tr"));
+  for(var i = 0; i < loaddata.length; i+=1){
+    console.log("load: " + loaddata[i].name + " " + loaddata[i].query);
+    var nrow = $(row).clone(true);
+    $(nrow).find(".name").val(loaddata[i].name);
+    $(nrow).find(".query").val(loaddata[i].query);
+    $(nrow).insertBefore($(row));
+  }
+  $(row).remove();
+
+  $(".addRow").click(function(){
+    // 行を取得
+    var row = $(this.closest("tr"));
+    // 行の形式をコピーして
+    var nrow = $(row).clone(true);
+    // 入力値を空にする
+    $(nrow).find(".name").val("");
+    $(nrow).find(".query").val("");
+    // 次の行に挿入
+    $(nrow).insertAfter($(row));
   });
 
-  $(document).on('click', '.remove', function() {
-    $(this).parents('tr').remove();
+  $(".remove").click(function() {
+    // 今の行数から1行削除した時の行数が0行にならなければ消す．
+    if($(this).parents("tbody").children().length - 1 > 0){
+      $(this).parents("tr").remove();
+    }
   });
 
-  $('#save').click(function(){
-    var values = [];
-    $('input[name="name"]').each(function(i, elem){
-      values.push($(elem).val());
+  $("#save").click(function(){
+
+    // 表の行(サイト名とクエリ)をJSON化して保存
+    var savedata = [];
+    var i = 0;
+    $("table tbody tr").map(function(index, value){
+
+      savedata[i] = {
+        "index": i,
+        "name": $(value).find(".name").val(),
+        "query": $(value).find(".query").val()
+      };
+      i += 1;
     });
-    alert(values.join(', '));
+
+    console.log("saved");
+    console.log(savedata);
+    localStorage.setItem(key, JSON.stringify(savedata));
   });
 });
