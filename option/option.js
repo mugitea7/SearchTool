@@ -65,5 +65,8 @@ $(function () {
         console.log("saved");
         console.log(saveData);
         localStorage.setItem(key, JSON.stringify(saveData));
+        chrome.runtime.reload();
+        $('#message').html('保存しました');
+        $(this).prop('disabled', true);
     });
 });

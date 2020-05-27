@@ -3,9 +3,6 @@ const load_data = JSON.parse(localStorage.getItem("option"));
 if (load_data !== undefined && load_data !== null) {
 
     for (let index = 0; index < load_data.length; index++) {
-        alert(load_data[index].name);
-        alert(load_data[index].query);
-
         chrome.contextMenus.create({
             title: load_data[index].name,
             contexts: ['selection'],

@@ -7,9 +7,17 @@
         "page": "option/option.html",
         "chrome_style": true
     },
-    "permissions": ["contextMenus", "storage"],
+    "permissions": [
+        "contextMenus",
+        "storage",
+        "management"
+    ],
     "background": {
-        "scripts": ["lib/jquery-3.5.1.min.js", "lib/jquery-ui.min.js", "src/background.js"]
+        "scripts": [
+            "lib/jquery-3.5.1.min.js",
+            "lib/jquery-ui.min.js",
+            "src/background.js"
+        ]
     },
     "icons": {
         "16": "img/16.png",
