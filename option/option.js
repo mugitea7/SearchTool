@@ -15,15 +15,17 @@ $(function(){
   $("tbody").sortable();
   var loaddata = JSON.parse(localStorage.getItem(key));
   // 1行目
-  var row = $($("table tbody tr").closest("tr"));
-  for(var i = 0; i < loaddata.length; i+=1){
-    console.log("load: " + loaddata[i].name + " " + loaddata[i].query);
-    var nrow = $(row).clone(true);
-    $(nrow).find(".name").val(loaddata[i].name);
-    $(nrow).find(".query").val(loaddata[i].query);
-    $(nrow).insertBefore($(row));
+  if(loaddata != null && loaddata != undefined){
+    var row = $($("table tbody tr").closest("tr"));
+    for(var i = 0; i < loaddata.length; i+=1){
+      console.log("load: " + loaddata[i].name + " " + loaddata[i].query);
+      var nrow = $(row).clone(true);
+      $(nrow).find(".name").val(loaddata[i].name);
+      $(nrow).find(".query").val(loaddata[i].query);
+      $(nrow).insertBefore($(row));
+    }
+    $(row).remove();
   }
-  $(row).remove();
 
   $(".addRow").click(function(){
     // 行を取得
