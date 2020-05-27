@@ -8,7 +8,6 @@ if (load_data !== undefined && load_data !== null) {
             contexts: ['selection'],
             type: 'normal',
             onclick: (info, tab) => {
-                alert(JSON.stringify(load_data));
                 const selection_text = info.selectionText
                 const search_url = load_data[index].query + encodeURI(selection_text);
 
