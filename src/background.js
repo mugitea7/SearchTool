@@ -1,9 +1,8 @@
-/*FIXME 16行目のqueryが取得できなくて動きません*/
-var load_data = JSON.parse(localStorage.getItem("option"));
+const load_data = JSON.parse(localStorage.getItem("option"));
 
-if (load_data != undefined && load_data != null) {    
+if (load_data !== undefined && load_data !== null) {
 
-    for (var index = 0; index < load_data.length; index++) {
+    for (let index = 0; index < load_data.length; index++) {
         alert(load_data[index].name);
         alert(load_data[index].query);
 
@@ -12,8 +11,8 @@ if (load_data != undefined && load_data != null) {
             contexts: ['selection'],
             type: 'normal',
             onclick: (info, tab) => {
-                var selection_text = info.selectionText;
-                var search_url = load_data[index].query + encodeURI(selection_text);
+                const selection_text = info.selectionText
+                const search_url = load_data[index - 1].query + encodeURI(selection_text);
 
                 window.open(search_url, "_blank");
             }
