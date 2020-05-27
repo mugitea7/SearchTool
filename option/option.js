@@ -6,7 +6,7 @@
  * }
  */
 
-$(() => {
+$(function () {
 
     // ローカルストレージのキー
     const key = "option";
@@ -27,7 +27,8 @@ $(() => {
         $(row).remove();
     }
 
-    $(".addRow").click(() => {
+    $(".addRow").click(function () {
+
         // 行を取得
         const row = $(this.closest("tr"));
         // 行の形式をコピーして
@@ -39,14 +40,14 @@ $(() => {
         $(nrow).insertAfter($(row));
     });
 
-    $(".remove").click(() => {
+    $(".remove").click(function () {
         // 今の行数から1行削除した時の行数が0行にならなければ消す．
         if ($(this).parents("tbody").children().length - 1 > 0) {
             $(this).parents("tr").remove();
         }
     });
 
-    $("#save").click(() => {
+    $("#save").click(function () {
 
         // 表の行(サイト名とクエリ)をJSON化して保存
         const saveData = [];
