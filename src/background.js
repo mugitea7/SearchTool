@@ -15,20 +15,10 @@ if (load_data !== undefined && load_data !== null) {
             }
         });
     }
-}
-
-/*
-for (var index = 0; index < 5; index++) {
+} else {
     chrome.contextMenus.create({
-        title: "data" + index,
+        title: '検索が設定されていません.',
         contexts: ['selection'],
         type: 'normal',
-        onclick: (info, tab) => {
-            var selection_text = info.selectionText;
-            var search_url = "https://ja.wikipedia.org/wiki/" + encodeURI(selection_text);
-
-            window.open(search_url, "_blank");
-        }
     });
 }
-*/
