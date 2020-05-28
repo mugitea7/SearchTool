@@ -1,3 +1,10 @@
+const parent_menu = chrome.contextMenus.create({
+    id: "parent",
+    title: "SearchTool",
+    contexts: ['selection'],
+    type: "normal",
+});
+
 const load_data = JSON.parse(localStorage.getItem("option"));
 
 if (load_data !== undefined && load_data !== null) {
@@ -12,6 +19,7 @@ if (load_data !== undefined && load_data !== null) {
             title: title_str,
             contexts: ['selection'],
             type: 'normal',
+            parentId: parent_menu,
             onclick: (info, tab) => {
                 const selection_text = info.selectionText
                 const search_url = load_data[index].query + encodeURI(selection_text);
@@ -25,5 +33,6 @@ if (load_data !== undefined && load_data !== null) {
         title: '検索が設定されていません.',
         contexts: ['selection'],
         type: 'normal',
+        parentId: parent_menu,
     });
 }
