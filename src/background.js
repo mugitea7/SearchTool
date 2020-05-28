@@ -3,8 +3,13 @@ const load_data = JSON.parse(localStorage.getItem("option"));
 if (load_data !== undefined && load_data !== null) {
 
     for (let index = 0; index < load_data.length; index++) {
+
+        let title_str = load_data[index].name;
+        if (title_str.match(/^[ 　\r\n\t]*$/))
+            title_str = "No title";
+
         chrome.contextMenus.create({
-            title: load_data[index].name,
+            title: title_str,
             contexts: ['selection'],
             type: 'normal',
             onclick: (info, tab) => {
