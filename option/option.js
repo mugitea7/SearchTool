@@ -66,7 +66,6 @@ $(function () {
         console.log(saveData);
         localStorage.setItem(key, JSON.stringify(saveData));
         chrome.runtime.reload();
-        $('#message').html('保存しました');
-        $(this).prop('disabled', true);
+        $('body').html('<span>保存しました</span>');
     });
 });
