@@ -5,6 +5,8 @@ const parent_menu = chrome.contextMenus.create({
     type: "normal",
 });
 
+const replace_string = "{{ searchText }}";
+
 const load_data = JSON.parse(localStorage.getItem("option"));
 
 if (load_data !== undefined && load_data !== null) {
@@ -21,8 +23,8 @@ if (load_data !== undefined && load_data !== null) {
             type: 'normal',
             parentId: parent_menu,
             onclick: (info, tab) => {
-                const selection_text = info.selectionText
-                const search_url = load_data[index].query + encodeURI(selection_text);
+                const selection_text = info.selectionText;
+                const search_url = load_data[index].query.replace(replace_string, encodeURI(selection_text));
 
                 window.open(search_url, "_blank");
             }
