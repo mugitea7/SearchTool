@@ -26,5 +26,5 @@ Web上で選択して検索する際、検索先を複数設定できるChrome�
   - 「タイトル」    ... 選択する時に出てくる項目の名前。
     - 例) google
   - 「クエリ」      ... URLを指定する。
-    - {{ searchText }}と記述すると、そこに選択した単語が置換されます。
-    - 例) https://google.com/search?q={{ searchText }}
+    - {{}}と記述すると、そこに選択した単語が置換されます。
+    - 例) https://google.com/search?q={{}}
