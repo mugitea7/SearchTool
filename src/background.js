@@ -1,3 +1,12 @@
+chrome.runtime.onStartup.addListener(function () {
+    const url = chrome.runtime.getURL('src/default.json');
+    fetch(url)
+        .then(res => res.json())
+        .then(json => {
+            localStorage.setItem('option', JSON.stringify(json));
+        });
+});
+
 const parent_menu = chrome.contextMenus.create({
     id: "parent",
     title: "SearchTool",
@@ -5,7 +14,7 @@ const parent_menu = chrome.contextMenus.create({
     type: "normal",
 });
 
-const replace_string = "{{ searchText }}";
+const replace_string = "{{}}";
 
 const load_data = JSON.parse(localStorage.getItem("option"));
 

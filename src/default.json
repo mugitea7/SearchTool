@@ -1,0 +1,12 @@
+[
+  {
+    "index": 0,
+    "name": "Google",
+    "query": "https://www.google.co.jp/?q={{}}"
+  },
+  {
+    "index": 1,
+    "name": "Youtube",
+    "query": "https://www.youtube.com/results?search_query={{}}"
+  }
+]

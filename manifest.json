@@ -8,6 +8,7 @@
         "chrome_style": true
     },
     "permissions": [
+        "declarativeContent",
         "contextMenus",
         "storage",
         "management"
@@ -25,5 +26,8 @@
         "48": "img/48.png",
         "128": "img/128.png"
     },
-    "content_security_policy": "script-src 'self' 'unsafe-eval' ; object-src 'self';"
+    "content_security_policy": "script-src 'self' 'unsafe-eval' ; object-src 'self';",
+    "web_accessible_resources": [
+        "src/default.json"
+    ]
 }
