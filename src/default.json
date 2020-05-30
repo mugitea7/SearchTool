@@ -2,11 +2,21 @@
   {
     "index": 0,
     "name": "Google",
-    "query": "https://www.google.co.jp/?q={{}}"
+    "query": "https://www.google.co.jp/search?q={{}}"
   },
   {
     "index": 1,
     "name": "Youtube",
     "query": "https://www.youtube.com/results?search_query={{}}"
+  },
+  {
+    "index": 2,
+    "name": "Weblio",
+    "query": "https://ejje.weblio.jp/content/{{}}"
+  },
+  {
+    "index": 3,
+    "name": "Amazon",
+    "query": "https://www.amazon.co.jp/s?k={{}}"
   }
 ]
