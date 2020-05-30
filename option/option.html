@@ -10,11 +10,15 @@
     <span id="message"></span>
     <table id="table-tbody">
         <thead>
+         <th><p<!-- 並べ替え用画像の列のヘッダ --></p></th>
         <th><p>タイトル</p></th>
         <th><p>クエリ</p></th>
         </thead>
         <tbody id="query-table-tbody">
         <tr>
+            <td>
+              <img src="../img/16.png">
+            </td>
             <td>
                 <input class="name" id="name" placeholder="Google" type="text"/>
             </td>
@@ -31,6 +35,8 @@
         </tr>
         </tbody>
     </table>
+    <p>検索ワードの箇所を<strong>{{}}</strong>と置きかえてください．</p>
+    <p>左の画像をドラッグして並べ替えができます．</p>
     <button class="ui-button ui-widget ui-corner-all" id="save" type="button">保存</button>
 </div>
 <script src="../lib/jquery-3.5.1.min.js"></script>
