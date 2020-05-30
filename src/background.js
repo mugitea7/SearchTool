@@ -9,7 +9,7 @@ chrome.runtime.onInstalled.addListener(function () {
     }
     const parent_menu = chrome.contextMenus.create({
         id: "parent",
-        title: "SearchTool",
+        title: "1-Click検索",
         contexts: ['selection'],
         type: "normal",
     });

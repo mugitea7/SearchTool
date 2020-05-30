@@ -1,8 +1,8 @@
 {
-    "name": "SearchTool",
+    "name": "1-Click検索",
     "version": "0.0.1",
     "manifest_version": 2,
-    "description": "SearchTool",
+    "description": "検索先サイトをカスタムできるツール",
     "options_ui": {
         "page": "option/option.html",
         "chrome_style": true
