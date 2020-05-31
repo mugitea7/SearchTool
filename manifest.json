@@ -8,10 +8,10 @@
         "chrome_style": true
     },
     "permissions": [
-        "declarativeContent",
+        
         "contextMenus",
-        "storage",
-        "management"
+        "storage"
+        
     ],
     "background": {
         "scripts": [
