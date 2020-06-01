@@ -8,16 +8,16 @@ function onInstalled() {
             });
     }
     
-    localStorage.setItem('is_setted', 'hoge');
-
+    const parent_menu = chrome.contextMenus.create({
+        id: "parent",
+        title: "1-Click検索",
+        contexts: ['selection'],
+        type: "normal",
+    });
+    
     setTimeout(function () {
-        const parent_menu = chrome.contextMenus.create({
-            id: "parent",
-            title: "1-Click検索",
-            contexts: ['selection'],
-            type: "normal",
-        });
-
+        
+        localStorage.setItem('is_setted', 'hoge');
         const replace_string = "{{}}";
         
         const load_data = JSON.parse(localStorage.getItem("option"));
@@ -51,7 +51,7 @@ function onInstalled() {
                 parentId: parent_menu,
             });
         }
-    }, 0);
+    }, 100);
 }
 
 chrome.runtime.onInstalled.addListener(function () {
