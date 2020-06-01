@@ -1,4 +1,4 @@
-chrome.runtime.onInstalled.addListener(function () {
+function onInstalled() {
     if (!localStorage.getItem('is_setted')) {
         const url = chrome.runtime.getURL('src/default.json');
         fetch(url)
@@ -7,15 +7,17 @@ chrome.runtime.onInstalled.addListener(function () {
                 localStorage.setItem('option', JSON.stringify(json));
             });
     }
-    const parent_menu = chrome.contextMenus.create({
-        id: "parent",
-        title: "1-Click検索",
-        contexts: ['selection'],
-        type: "normal",
-    });
     
+    localStorage.setItem('is_setted', 'hoge');
+
     setTimeout(function () {
-        localStorage.setItem('is_setted', 'hoge');
+        const parent_menu = chrome.contextMenus.create({
+            id: "parent",
+            title: "1-Click検索",
+            contexts: ['selection'],
+            type: "normal",
+        });
+
         const replace_string = "{{}}";
         
         const load_data = JSON.parse(localStorage.getItem("option"));
@@ -49,6 +51,17 @@ chrome.runtime.onInstalled.addListener(function () {
                 parentId: parent_menu,
             });
         }
-    }, 100);
+    }, 0);
+}
 
+chrome.runtime.onInstalled.addListener(function () {
+    onInstalled();
 });
+
+setTimeout(function () {
+    chrome.contextMenus.update("parent", {}, function () {
+        if (chrome.runtime.lastError) {
+            onInstalled();
+        }
+    });
+}, 222);

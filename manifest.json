@@ -1,6 +1,6 @@
 {
     "name": "1-Click検索",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "manifest_version": 2,
     "description": "検索先サイトをカスタムできるツール",
     "options_ui": {
@@ -9,8 +9,7 @@
     },
     "permissions": [
         
-        "contextMenus",
-        "storage"
+        "contextMenus"
         
     ],
     "background": {
@@ -35,7 +34,6 @@
         "48": "img/48.png",
         "128": "img/128.png"
     },
-    "content_security_policy": "script-src 'self' 'unsafe-eval' ; object-src 'self';",
     "web_accessible_resources": [
         "src/default.json"
     ]

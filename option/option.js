@@ -62,8 +62,6 @@ $(function () {
             i += 1;
         });
 
-        console.log("saved");
-        console.log(saveData);
         localStorage.setItem(key, JSON.stringify(saveData));
         chrome.runtime.reload();
         $('body').html('<span>保存しました</span>');
